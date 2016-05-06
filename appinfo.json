@@ -1,0 +1,44 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "roy@besiera.info",
+    "enableMultiJS": true,
+    "longName": "DU30Watchface",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/dc_logo_118x118.png",
+                "name": "DC_LOGO_118",
+                "targetPlatforms": [
+                    "basalt",
+                    "chalk"
+                ],
+                "type": "png"
+            },
+            {
+                "file": "images/dc_logo_28x28.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "targetPlatforms": [
+                    "basalt",
+                    "chalk"
+                ],
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "DU30Watchface",
+    "targetPlatforms": [
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "63e393d7-ea4f-4e89-b6bb-d341d287f05e",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
