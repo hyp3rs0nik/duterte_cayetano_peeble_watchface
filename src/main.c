@@ -1,7 +1,7 @@
 #include <pebble.h>
 
 static Window *s_main_window;
-static TextLayer *s_time_layer, *s_date_layer;
+static TextLayer *s_time_layer;
 static BitmapLayer *s_background_layer;
 static GBitmap *s_background_bitmap;
 
@@ -18,13 +18,6 @@ static void update_time() {
 
   // Display this time on the TextLayer
   text_layer_set_text(s_time_layer, s_buffer);
-  
-  static char date_buffer[16];
-  strftime(date_buffer, sizeof(date_buffer), "%a, %b %d", tick_time);
-
-  // Show the date
-  text_layer_set_text(s_date_layer, date_buffer);
-  
 }
 
 
@@ -57,16 +50,8 @@ static void main_window_load(Window *window) {
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_LECO_26_BOLD_NUMBERS_AM_PM));
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
 
-  
-  s_date_layer = text_layer_create(GRect(0, 140, 144, 30));
-  text_layer_set_text_color(s_date_layer, GColorRed);
-  text_layer_set_background_color(s_date_layer, GColorClear);
-  text_layer_set_font(s_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
-  text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
-  
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
-  layer_add_child(window_layer, text_layer_get_layer(s_date_layer));
-
+ 
 }
 
 static void main_window_unload(Window *window) {
@@ -99,7 +84,6 @@ static void init() {
 
 static void deinit() {
   text_layer_destroy(s_time_layer);
-  text_layer_destroy(s_date_layer);
   window_destroy(s_main_window);
 }
 
